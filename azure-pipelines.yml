@@ -4,7 +4,7 @@ trigger:
 - none
 
 variables:
-  service-connection: 'kw-aml-exp-service-connection' # replace with your service connection name
+  service-connection: 'Service-Connection-mlp-sit-resource-manager' # replace with your service connection name
   resource-group: 'sae-mlp-sea-rg' # replace with your resource group name
   workspace: 'kw-exp' # replace with your workspace name
 
