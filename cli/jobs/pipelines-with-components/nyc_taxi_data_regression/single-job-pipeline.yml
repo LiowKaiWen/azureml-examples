@@ -7,7 +7,7 @@ jobs:
   train_job:
     type: command
     component: ./train.yml
-    compute: azureml:test-compute-instance
+    compute: azureml:serverless
     inputs:
       training_data: 
         type: uri_folder
