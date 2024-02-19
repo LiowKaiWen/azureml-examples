@@ -37,8 +37,14 @@ jobs:
       scriptType: bash
       inlineScript: |
       
-        # submit component job and get the run name
-        job_name=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name --output tsv)
+        # create pipeline-draft
+        az ml pipeline create-draft --experiment_name 'test' --name 'nyc_taxi_data_regression_single_job' --pipeline-yaml single-job-pipeline.yml -g $(resource-group) -w $(workspace)
 
-        # Set output variable for next task
-        echo "##vso[task.setvariable variable=JOB_NAME;isOutput=true;]$job_name"
+        # # submit component job and get the run name
+        # job_name=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name --output tsv)
+
+        # # publish job and set as default
+        # az ml pipeline publish -w $(workspace) 
+
+        # # Set output variable for next task
+        # echo "##vso[task.setvariable variable=JOB_NAME;isOutput=true;]$job_name"
